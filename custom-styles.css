@@ -1,0 +1,65 @@
+.tiny-text {
+  font-size: 70% !important; /* Adjust percentage as needed */
+}
+.extra-tiny-text {
+  font-size: 50% !important; /* Even smaller */
+}
+
+
+.leaflet-container {
+  height: 600px !important;
+}
+
+.flex-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+  max-height: 500px;
+}
+
+.value-box {
+  border-radius: 12px;
+  padding: 20px;
+  width: 200px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.value-number {
+  font-weight: bold;
+  font-size: 3rem;
+}
+
+.value-title {
+  font-size: 1rem;
+}
+
+.value-subtitle {
+  font-style: italic;
+  font-size: 1rem;
+}
+
+.value-box.blue {
+  background-color: #e3f2fd;
+  color: #2138B7;
+}
+
+.value-box.green {
+  background-color: #e8f5e9;
+  color: #388e3c;
+}
+
+.value-box.orange {
+  background-color: #fff3e0;
+  color: #f57c00;
+}
+
+.thank-you {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+}
