@@ -314,51 +314,6 @@ gdp_plot
 
 ```
 
-## Contribution of Rice to Headline Inflation, 2010-2024 {.tiny-text}
-
-```{r}
-#| label: inflation
-#| echo: false
-
-library(tidyverse)
-library(plotly)
-
-# Load data
-inf_data <- read_csv("inflation.csv")
-
-inf_data <- inf_data %>%
-  mutate(
-    headline = headline * 100,
-    contri = contri * 100,
-    headline_label = paste("Headline Inflation:", round(headline, 1), "%"),
-    contri_label = paste0("Contribution of Rice: ", round(contri, 1), "%"))
-
-plot_ly(inf_data,
-        width=1000,
-        height = 600,
-        x = ~year) %>%
-  add_lines(y = ~headline, name = "Headline Inflation", 
-            line = list(color = "forestgreen", 
-                        width = 2),
-            text = ~headline_label,
-    hoverinfo = "text") %>%
-  add_lines(y = ~contri, name = "Rice Contribution", 
-            line = list(color = "darkorange", 
-                        width = 2),
-            text = ~contri_label,
-    hoverinfo = "text") %>%
-  layout(
-    xaxis = list(title = "Year"
-                 # rangeslider = list(visible = TRUE)
-                 ),
-    yaxis = list(title = "Percent (%)", tickformat = ".2f"),
-    legend = list(orientation = "h", x = 0.1, y = 1.1),
-    hovermode = "x unified",
-    margin = list(b = 60, t = 60)
-  ) %>%
-  config(displayModeBar = FALSE)
-
-```
 
 ## Total Number of Rice Farmers in the Philippines {.tiny-text}
 
@@ -2254,6 +2209,53 @@ plot_ly(ipp_data,
   config(displayModeBar = FALSE)
 
 ```
+
+## Contribution of Rice to Headline Inflation, 2010-2024 {.tiny-text}
+
+```{r}
+#| label: inflation
+#| echo: false
+
+library(tidyverse)
+library(plotly)
+
+# Load data
+inf_data <- read_csv("inflation.csv")
+
+inf_data <- inf_data %>%
+  mutate(
+    headline = headline * 100,
+    contri = contri * 100,
+    headline_label = paste("Headline Inflation:", round(headline, 1), "%"),
+    contri_label = paste0("Contribution of Rice: ", round(contri, 1), "%"))
+
+plot_ly(inf_data,
+        width=1000,
+        height = 600,
+        x = ~year) %>%
+  add_lines(y = ~headline, name = "Headline Inflation", 
+            line = list(color = "forestgreen", 
+                        width = 2),
+            text = ~headline_label,
+    hoverinfo = "text") %>%
+  add_lines(y = ~contri, name = "Rice Contribution", 
+            line = list(color = "darkorange", 
+                        width = 2),
+            text = ~contri_label,
+    hoverinfo = "text") %>%
+  layout(
+    xaxis = list(title = "Year"
+                 # rangeslider = list(visible = TRUE)
+                 ),
+    yaxis = list(title = "Percent (%)", tickformat = ".2f"),
+    legend = list(orientation = "h", x = 0.1, y = 1.1),
+    hovermode = "x unified",
+    margin = list(b = 60, t = 60)
+  ) %>%
+  config(displayModeBar = FALSE)
+
+```
+
 
 # Outlook for 2025 and beyond
 
